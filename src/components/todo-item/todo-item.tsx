@@ -16,11 +16,11 @@ export const TodoItem: FC<TodoItemPropsI> = React.memo(({text, isDone, id, switc
 
   return (
     <li className={styles.itemContainer}>
-      <button onClick={() => {switchDone(id)}} className={`${styles.button} ${isDone && styles.doneButton}`}>
+      <button data-test="done-button" onClick={() => {switchDone(id)}} className={`${styles.button} ${isDone && styles.doneButton}`}>
         {isDone ? <DoneIcon/> : null}
       </button>
-      <div className={`${styles.todoText} ${isDone && styles.doneText }`}>{text};</div>
-      <button onClick={() => {deleteTodo(id)}} className={styles.deleteIcon}>
+      <div className={`${styles.todoText} ${isDone && styles.doneText}`}>{text}</div>
+      <button data-test="delete-button" onClick={() => {deleteTodo(id)}} className={styles.deleteIcon}>
         <DeleteIcon/>
       </button>
     </li>

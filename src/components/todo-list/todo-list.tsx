@@ -19,7 +19,7 @@ export const TodoList: React.FC<TodoListPropsT> = ({todos, switchDone, deleteTod
     }
   };
   return (
-    <ul className={styles.todoContainer} id='todoList'>
+    <ul className={styles.todoContainer} id='todoList' data-test="todo-list">
       {renderTodos()?.map((item) => (<TodoItem key={item.id} {...item} switchDone={switchDone} deleteTodo={deleteTodo}/>))}
     </ul>
   )
