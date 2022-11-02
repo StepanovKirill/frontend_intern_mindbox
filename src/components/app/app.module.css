@@ -1,0 +1,57 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  display: flex;
+  justify-content: center;
+}
+
+.appContainer {
+  width: 100%;
+  max-width: 650px;
+  padding: 0 50px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-border);
+  margin: 10px 0;
+}
+
+.filterContainer {
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text {
+  line-height: 30px;
+  font-size: 12px;
+  margin-left: 5px;
+  margin-right: auto;
+}
+
+.button {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  opacity: 0.6;
+  margin: 0 5px;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+}
+
+.activeTab {
+  opacity: 1;
+  border-bottom: 1px solid var(--color-border);
+}

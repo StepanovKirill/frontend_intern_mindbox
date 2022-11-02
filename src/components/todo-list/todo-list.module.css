@@ -1,0 +1,25 @@
+.todoContainer {
+  width: 100%;
+  max-height: calc(100vh - 250px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+
+.todoContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.todoContainer::-webkit-scrollbar-track {
+  background: var(--color-border);
+  border-radius: 2px;
+
+}
+
+.todoContainer::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 2px;
+
+}
