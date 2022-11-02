@@ -1,6 +1,6 @@
 import React from 'react';
 import { TodoItemI } from '../../utils/types';
-import { getTodos, saveItems } from '../../utils/utils';
+import { beautifyText, getTodos, saveTodos } from '../../utils/utils';
 import { InputTodo } from '../input-todo/input-todo';
 import { TodoList } from '../todo-list/todo-list';
 import styles from './app.module.css'
@@ -13,16 +13,15 @@ export const App = () => {
   React.useEffect(() => {
     // если уже есть список дел, достаем из хранилища / с сервера при монтировании компонента
     customSetTodos(getTodos());
-  }, []);
+  }, []); 
 
   const customSetTodos = React.useCallback((newTodos: Array<TodoItemI>) => {
-    saveItems(newTodos)
+    saveTodos(newTodos)
     setTodos(newTodos);
   }, [])
 
   const addTodo = (todo: TodoItemI) => {
-    todo.text = todo.text[0].toUpperCase() + todo.text.slice(1);
-    customSetTodos([todo, ...todos]);
+    customSetTodos([{...todo, text: beautifyText(todo.text)}, ...todos]);
   };
 
   const deleteTodo = (id: string) => {
@@ -58,10 +57,10 @@ export const App = () => {
         <InputTodo addTodo={addTodo}/>
         <TodoList switchDone={switchDone} deleteTodo={deleteTodo} todos={todos} activeTab={tab}/>
         <div className={styles.filterContainer}>
-          <p className={styles.text}>
+          <p data-test="remaining-counter" className={styles.text}>
             {remainedTodos ? `${remainedTodos} осталось сделать` : 'Можно отдохнуть, пока дел нет'}
           </p>
-          <div>
+          <div data-test="tabs">
             <button className={`${styles.button} ${tab === 'all' && styles.activeTab}`} onClick={() => {setActiveTab('all')}}>Все</button>
             <button className={`${styles.button} ${tab === 'active' && styles.activeTab}`} onClick={() => {setActiveTab('active')}}>Активные</button>
             <button className={`${styles.button} ${tab === 'completed' && styles.activeTab}`} onClick={() => {setActiveTab('completed')}}>Выполненные</button>

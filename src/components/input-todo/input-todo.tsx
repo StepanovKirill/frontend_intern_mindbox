@@ -27,6 +27,7 @@ export const InputTodo: FC<{addTodo: (addTodo: TodoItemI) => void}> = ({addTodo}
       className={styles.inputTodo}
       placeholder='что нужно сделать?'
       autoFocus
+      data-test="input-todo"
       />
     <button className={styles.doneButton}>{'>'}</button>
   </form>)
